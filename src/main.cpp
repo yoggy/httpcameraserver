@@ -22,10 +22,10 @@
 
 #include "http_handler.h"
 
-int port;
-int camera_idx;
-int jpeg_quality;
-bool no_display;
+int port         = 10080;
+int camera_idx   = 0;
+int jpeg_quality = 90;
+bool no_display  = false;
 
 boost::program_options::options_description desc("options");
 HttpHandler handler;
@@ -58,10 +58,10 @@ void process_opt(int argc, char* argv[])
 {
 	desc.add_options()
 	  ("help,h",  "print help")
-	  ("port,p", boost::program_options::value<int>(&port)->default_value(10080), "listen port")
-	  ("camera_idx,i", boost::program_options::value<int>(&camera_idx)->default_value(0), "open camera idx")
-	  ("jpeg_quality,j", boost::program_options::value<int>(&jpeg_quality)->default_value(90), "jpeg quality (1-100)")
-	  ("no_display,n", boost::program_options::value<bool>(&no_display)->default_value(false), "no display window mode...");
+	  ("port,p", boost::program_options::value<int>(&port)->default_value(port), "listen port")
+	  ("camera-idx,i", boost::program_options::value<int>(&camera_idx)->default_value(camera_idx), "open camera idx")
+	  ("jpeg-quality,j", boost::program_options::value<int>(&jpeg_quality)->default_value(jpeg_quality), "jpeg quality (1-100)")
+	  ("no-display,n", "no display window mode...");
 
 	boost::program_options::variables_map vm;
     boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
@@ -71,7 +71,8 @@ void process_opt(int argc, char* argv[])
 		usage();
 	}
 
-	// range check
+	// check
+	if (vm.count("no_display") > 0) no_display = true;
 	if (jpeg_quality < 0) jpeg_quality = 0;
 	if (jpeg_quality > 100) jpeg_quality = 100;
 }
