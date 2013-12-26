@@ -9,17 +9,17 @@ simple usage
 --------
 start httpcameraserver.exe.
 <pre>
-  C:\httpcameraserver\bin>httpcameraserver.exe
+  C:\httpcameraserver\bin> httpcameraserver.exe
   start httpcameraserver. listen port=10080
 </pre>
 
-access http://localhost:10080/ using the Web browser.
+access http://localhost:10080/ using the web browser.
 
 <pre>
 start http://localhost:10080/
 </pre>
 
-sample client sketch for Processing.
+sample client sketch for processing.
 <pre>
   void setup() {
     size(640, 480);
@@ -36,7 +36,7 @@ sample client sketch for Processing.
 commanline options
 --------
 <pre>
-  C:\httpcameraserver\bin>httpcameraserver.exe -h
+  C:\httpcameraserver\bin> httpcameraserver.exe -h
   options:
     -h [ --help ]                   print help
     -p [ --port ] arg (=10080)      listen port
