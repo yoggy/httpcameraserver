@@ -1,0 +1,17 @@
+*.suo
+*.user
+
+_obj/
+
+ipch/
+*.ncb
+*.opensdf
+*.sdf
+
+*.log
+*.filters
+
+*.pdb
+*.ilk
+*d.exe
+*d.dll
