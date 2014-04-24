@@ -5,11 +5,11 @@
 		#pragma warning(disable:4996)
 		#pragma warning(disable:4819)
 	#ifdef _DEBUG
-		#pragma comment(lib, "opencv_core247d.lib")
-		#pragma comment(lib, "opencv_highgui247d.lib")
+		#pragma comment(lib, "opencv_core249d.lib")
+		#pragma comment(lib, "opencv_highgui249d.lib")
 	#else
-		#pragma comment(lib, "opencv_core247.lib")
-		#pragma comment(lib, "opencv_highgui247.lib")
+		#pragma comment(lib, "opencv_core249.lib")
+		#pragma comment(lib, "opencv_highgui249.lib")
 	#endif
 #endif
 

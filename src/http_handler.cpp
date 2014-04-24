@@ -62,6 +62,14 @@ void HttpHandler::process_camera_jpg(http_server::request const &req, http_serve
 	res = http_server::response::stock_reply(http_server::response::ok, "dummy...");
 	res.headers[1].value = "image/jpeg";
 	res.headers[0].value = (boost::format("%d") % buf.size()).str();
+
+	// for CORS restriction...
+	res.headers.resize(res.headers.size() + 2);
+	res.headers[res.headers.size() - 2].name = "X-Content-Type-Options";
+	res.headers[res.headers.size() - 2].value = "nosniff";
+	res.headers[res.headers.size() - 1].name = "Access-Control-Allow-Origin";
+	res.headers[res.headers.size() - 1].value = "*";
+
 	res.content = std::string((const char*)&buf[0], buf.size());
 }
 
